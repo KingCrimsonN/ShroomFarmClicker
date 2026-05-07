@@ -1474,7 +1474,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -12, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3090,6 +3090,7 @@ MonoBehaviour:
   - {fileID: 847439028}
   - {fileID: 1048481567}
   - {fileID: 813277771}
+  cauldron: {fileID: 2091863118}
 --- !u!1 &1637018958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4127,8 +4128,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2091863117}
   - component: {fileID: 2091863116}
+  - component: {fileID: 2091863118}
+  - component: {fileID: 2091863119}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Cauldron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4208,6 +4211,116 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2091863118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091863115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bc296794bd6964f8935f054f18975e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cauldrun
+  potionsell: {fileID: 5055062947877357516, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+--- !u!58 &2091863119
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091863115}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!1001 &5077734184812587515
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -16.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780556303266558817, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055062947877357516, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_Name
+      value: PotionSell
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055062947877357516, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28a748da1e00203419a1c1411096cfd1, type: 3}
 --- !u!1001 &5096802293389729547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4287,3 +4400,4 @@ SceneRoots:
   - {fileID: 813277770}
   - {fileID: 689407257}
   - {fileID: 1629370773}
+  - {fileID: 5077734184812587515}

@@ -8,6 +8,8 @@ public class BrewingManager : MonoBehaviour
     public int currentSlot;
     public BrewingSlot[] brewingSlots = new BrewingSlot[3];
 
+    public Cauldron cauldron;
+
     void Awake()
     {
         if (instance != null)
@@ -43,6 +45,18 @@ public class BrewingManager : MonoBehaviour
 
     public void NextSlot()
     {
-        currentSlot = (currentSlot + 1) % 3;
+        currentSlot = currentSlot + 1;
+        if (currentSlot > 2)
+        {
+            cauldron.MakeReady();
+        }
+    }
+
+    public void ResetSlots()
+    {
+        foreach (BrewingSlot slot in brewingSlots)
+        {
+            slot.ClearSlot();
+        }
     }
 }
