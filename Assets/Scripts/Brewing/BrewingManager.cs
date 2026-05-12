@@ -27,7 +27,7 @@ public class BrewingManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        currentSlot = 0;
     }
 
     // Update is called once per frame
@@ -38,6 +38,10 @@ public class BrewingManager : MonoBehaviour
 
     public void AddShroom(MushroomManager.MushroomType type)
     {
+        if (currentSlot > 2)
+        {
+            return;
+        }
         brewingSlots[currentSlot].AddShroom(type);
         NextSlot();
     }
@@ -52,8 +56,23 @@ public class BrewingManager : MonoBehaviour
         }
     }
 
+    // TODO: Make a potion class with value
+    public int BrewPotion()
+    {
+        float tempMoney = 0;
+        foreach (BrewingSlot slot in brewingSlots)
+        {
+            tempMoney += ((int)slot.mushroomType + 1) * 10f * UpgradeManager.instance.potionPriceMultiplier;
+            print(tempMoney);
+        }
+        MoneyManager.instance.AddMoney(tempMoney);
+        ResetSlots();
+        return (int)tempMoney;
+    }
+
     public void ResetSlots()
     {
+        currentSlot = 0;
         foreach (BrewingSlot slot in brewingSlots)
         {
             slot.ClearSlot();

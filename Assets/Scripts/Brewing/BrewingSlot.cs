@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BrewingSlot : MonoBehaviour
 {
-    MushroomManager.MushroomType mushroomType;
+    public MushroomManager.MushroomType mushroomType;
     private SpriteRenderer mushroomSprite;
 
     public void AddShroom(MushroomManager.MushroomType type)

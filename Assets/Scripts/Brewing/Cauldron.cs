@@ -22,10 +22,12 @@ public class Cauldron : MonoBehaviour
     {
         if (ready)
         {
-            BrewingManager.instance.ResetSlots();
+            int price = BrewingManager.instance.BrewPotion();
             sprite.color = Color.white;
             ready = false;
-            Instantiate(potionsell, transform.position + new Vector3(0, -1.25f, 0), Quaternion.identity); ;
+            GameObject potion = Instantiate(potionsell, transform.position + new Vector3(0, -1.25f, 0), Quaternion.identity); ;
+            potion.GetComponent<PotionSellPopup>().SetPrice(price);
+
         }
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

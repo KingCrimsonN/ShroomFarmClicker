@@ -19,7 +19,7 @@ public class ShroomButton : MonoBehaviour
 
     public void PutMushroom()
     {
-        if (MushroomManager.instance.mushroomInventory[(int)mushroomType] > 0)
+        if (MushroomManager.instance.mushroomInventory[(int)mushroomType] > 0 && BrewingManager.instance.currentSlot < 3)
         {
             MushroomManager.instance.AddMushroom(mushroomType, -1);
             BrewingManager.instance.AddShroom(mushroomType);

@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb0257f857e42514281d9f3189463959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PotionSellPopup
+  text: {fileID: 41595425942603754}
 --- !u!1 &7704646431467707641
 GameObject:
   m_ObjectHideFlags: 0

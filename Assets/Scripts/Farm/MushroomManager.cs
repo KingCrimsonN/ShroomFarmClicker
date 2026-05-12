@@ -17,6 +17,9 @@ public class MushroomManager : MonoBehaviour
 
     public int[] mushroomInventory = new int[3];
 
+    public TMP_Text[] farmMushroomLabels;
+    public TMP_Text[] brewingMushroomLabels;
+
     public void AddMushroom(MushroomType type, int amount)
     {
         mushroomInventory[(int)type] += amount;
@@ -25,9 +28,10 @@ public class MushroomManager : MonoBehaviour
 
     private void UpdateLabels()
     {
-        for (int i = 0; i < labels.Length; i++)
+        for (int i = 0; i < mushroomInventory.Length; i++)
         {
-            labels[i].text = mushroomInventory[i].ToString();
+            farmMushroomLabels[i].text = mushroomInventory[i].ToString();
+            brewingMushroomLabels[i].text = mushroomInventory[i].ToString();
         }
     }
 

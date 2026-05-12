@@ -20,6 +20,8 @@ public class Mushroom : MonoBehaviour
     [SerializeField]
     private float current_growth;
 
+    private float growth_timer;
+
     InputActionAsset actions;
 
     void Awake()
@@ -38,12 +40,12 @@ public class Mushroom : MonoBehaviour
 
     void OnMouseDown()
     {
-        current_growth += growth_per_click;
+        current_growth += UpgradeManager.instance.growthPerClick;
         if (current_growth > total_growth)
         {
             Harvest();
         }
-        growth_text.text = current_growth.ToString() + "/" + total_growth.ToString();
+        growth_text.text = current_growth.ToString("F0") + "/" + total_growth.ToString();
     }
 
     // Harvest the mushroom: 
@@ -64,9 +66,15 @@ public class Mushroom : MonoBehaviour
     // Mushroom grows on click
     void Update()
     {
-        // if (current_growth < total_growth)
-        // {
-        //     current_growth += growth_per_second * Time.deltaTime;
-        // }
+        if (current_growth < total_growth)
+        {
+            current_growth += UpgradeManager.instance.growthPerSecond * Time.deltaTime;
+        }
+        growth_timer += Time.deltaTime;
+        if (growth_timer >= 1f)
+        {
+            growth_timer = 0f;
+            growth_text.text = current_growth.ToString("F0") + "/" + total_growth.ToString();
+        }
     }
 }
