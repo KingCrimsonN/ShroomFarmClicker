@@ -32,7 +32,7 @@ public class Mushroom : MonoBehaviour
             currentGrowth += UpgradeManager.instance.growthPerSecond * Time.deltaTime;
 
             // Optional: If you want passive growth to auto-harvest when full:
-            // if (currentGrowth >= totalGrowth) Harvest();
+            if (currentGrowth >= totalGrowth && UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeType.AutoHarvest) > 0) Harvest();
         }
 
         // Performance Optimization: Don't update strings every single frame on mobile.

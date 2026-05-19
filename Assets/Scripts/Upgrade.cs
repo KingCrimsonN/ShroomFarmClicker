@@ -53,6 +53,7 @@ public class Upgrade : MonoBehaviour
         {
             MoneyManager.instance.AddMoney(-currentCost);
             UpgradeManager.instance.PurchaseUpgrade(upgradeType);
+            print("Purchased: " + upgradeType + " level: " + UpgradeManager.instance.GetUpgradeLevel(upgradeType));
             if (oneTime) { canAfford = false; }
         }
     }

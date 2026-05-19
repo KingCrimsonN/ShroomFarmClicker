@@ -17,6 +17,7 @@ public class UpgradeManager : MonoBehaviour
     private int clickLevel = 0;
     private int passiveLevel = 0;
     private int priceLevel = 0;
+    private int autoHarvestLevel = 0;
 
     // Event broadcast so UI shop buttons know when an upgrade level increases
     public static event Action<UpgradeType, int> OnUpgradeLeveled;
@@ -40,6 +41,7 @@ public class UpgradeManager : MonoBehaviour
             UpgradeType.GrowthPerClick => clickLevel,
             UpgradeType.GrowthPerSecond => passiveLevel,
             UpgradeType.PotionPriceMultiplier => priceLevel,
+            UpgradeType.AutoHarvest => autoHarvestLevel,
             _ => 0
         };
     }
@@ -51,6 +53,7 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.GrowthPerClick: clickLevel++; break;
             case UpgradeType.GrowthPerSecond: passiveLevel++; break;
             case UpgradeType.PotionPriceMultiplier: priceLevel++; break;
+            case UpgradeType.AutoHarvest: autoHarvestLevel++; break;
         }
 
         OnUpgradeLeveled?.Invoke(type, GetUpgradeLevel(type));
