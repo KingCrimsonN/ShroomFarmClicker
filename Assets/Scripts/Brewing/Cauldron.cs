@@ -4,29 +4,35 @@ public class Cauldron : MonoBehaviour
 {
     private bool ready;
     private SpriteRenderer sprite;
+    [SerializeField] private Sprite readySprite;
+    private Sprite defaultSprite;
 
     [SerializeField] private GameObject potionsell;
 
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        defaultSprite = sprite.sprite;
     }
 
     public void MakeReady()
     {
         ready = true;
-        sprite.color = Color.green;
+        sprite.sprite = readySprite;
     }
 
     public void OnMouseDown()
     {
         if (ready)
         {
-            int price = BrewingManager.instance.BrewPotion();
-            sprite.color = Color.white;
+            string potionName;
+            int potionPrice;
+            BrewingManager.instance.BrewPotion(out potionPrice, out potionName);
+            sprite.sprite = defaultSprite;
             ready = false;
-            GameObject potion = Instantiate(potionsell, transform.position + new Vector3(0, -1.25f, 0), Quaternion.identity); ;
-            potion.GetComponent<PotionSellPopup>().SetPrice(price);
+            GameObject potion = Instantiate(potionsell, transform.position, Quaternion.identity); ;
+            potion.GetComponent<PotionSellPopup>().SetPrice(potionPrice);
+            potion.GetComponent<PotionSellPopup>().SetPotionName(potionName);
 
         }
     }

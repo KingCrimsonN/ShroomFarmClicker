@@ -5,6 +5,8 @@ public class MushroomManager : MonoBehaviour
 {
     public static MushroomManager instance;
 
+    public ShroomSpriteList mushroomSprites;
+
     public enum MushroomType
     {
         Red,

@@ -9,7 +9,8 @@ public class UpgradeManager : MonoBehaviour
     {
         GrowthPerClick,
         GrowthPerSecond,
-        PotionPriceMultiplier
+        PotionPriceMultiplier,
+        AutoHarvest
     }
 
     // Central repository tracking the level of each upgrade type

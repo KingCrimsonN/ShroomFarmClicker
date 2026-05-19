@@ -8,6 +8,7 @@ public class Upgrade : MonoBehaviour
     [SerializeField] private UpgradeManager.UpgradeType upgradeType;
     [SerializeField] private double baseCost = 10;
     [SerializeField] private float costMultiplier = 1.15f;
+    [SerializeField] private bool oneTime;
 
     [Header("World Space Text Displays")]
     [SerializeField] private TMP_Text titleText;
@@ -28,6 +29,7 @@ public class Upgrade : MonoBehaviour
         {
             objectSprite = GetComponent<SpriteRenderer>();
         }
+        RefreshUpgradeState();
     }
 
     void OnEnable()
@@ -51,6 +53,7 @@ public class Upgrade : MonoBehaviour
         {
             MoneyManager.instance.AddMoney(-currentCost);
             UpgradeManager.instance.PurchaseUpgrade(upgradeType);
+            if (oneTime) { canAfford = false; }
         }
     }
 

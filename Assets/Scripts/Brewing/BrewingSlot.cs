@@ -6,7 +6,7 @@ public class BrewingSlot : MonoBehaviour
 
     void Awake()
     {
-        mushroomSprite = GetComponentInChildren<SpriteRenderer>();
+        // mushroomSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Start()
@@ -18,12 +18,12 @@ public class BrewingSlot : MonoBehaviour
     {
         if (mushroomSprite == null) return;
 
-        mushroomSprite.color = type switch
+        mushroomSprite.sprite = type switch
         {
-            MushroomManager.MushroomType.Red => Color.red,
-            MushroomManager.MushroomType.Green => Color.green,
-            MushroomManager.MushroomType.Blue => Color.blue,
-            _ => Color.white
+            MushroomManager.MushroomType.Red => MushroomManager.instance.mushroomSprites.sprites[0],
+            MushroomManager.MushroomType.Green => MushroomManager.instance.mushroomSprites.sprites[1],
+            MushroomManager.MushroomType.Blue => MushroomManager.instance.mushroomSprites.sprites[2],
+            _ => null
         };
     }
 
@@ -31,7 +31,7 @@ public class BrewingSlot : MonoBehaviour
     {
         if (mushroomSprite != null)
         {
-            mushroomSprite.color = new Color(1, 1, 1, 0); // Hide visual transparently
+            mushroomSprite.sprite = null; // Hide visual transparently
         }
     }
 }

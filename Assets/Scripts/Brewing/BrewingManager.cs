@@ -55,9 +55,14 @@ public class BrewingManager : MonoBehaviour
         ResetSlotsDataOnly();
     }
 
-    public int BrewPotion()
+    public void BrewPotion(out int finalPriceOut, out string potionName)
     {
-        if (!IsCauldronFull) return 0;
+        if (!IsCauldronFull)
+        {
+            finalPriceOut = 0;
+            potionName = null;
+            return;
+        }
 
         // 1. Determine potion type and pricing dynamically from data
         PotionRecipe matchedRecipe = null;
@@ -69,19 +74,20 @@ public class BrewingManager : MonoBehaviour
                 break;
             }
         }
-
+        potionName = matchedRecipe != null ? matchedRecipe.potionName : "Useless potion";
         float calculatedPrice = matchedRecipe != null ? matchedRecipe.basePrice : failedPotionPrice;
 
         // Apply Global Modifiers
         calculatedPrice *= UpgradeManager.instance.potionPriceMultiplier;
         int finalPrice = Mathf.RoundToInt(calculatedPrice);
+        finalPriceOut = finalPrice;
 
         // 2. Add Money
         MoneyManager.instance.AddMoney(finalPrice);
 
         // 3. Clear data without refunding (since it was successfully turned into a potion)
         ResetSlotsDataOnly();
-        return finalPrice;
+        return;
     }
 
     private void ResetSlotsDataOnly()

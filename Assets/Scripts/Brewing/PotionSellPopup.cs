@@ -5,7 +5,8 @@ using UnityEngine;
 // Needs to fetch the potion based on the mushrooms used
 public class PotionSellPopup : MonoBehaviour
 {
-    [SerializeField] private TMP_Text text;
+    [SerializeField] private TMP_Text priceText;
+    [SerializeField] private TMP_Text potionName;
     private int price;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +17,12 @@ public class PotionSellPopup : MonoBehaviour
     public void SetPrice(int price)
     {
         this.price = price;
-        text.text = $"${price}";
+        priceText.text = $"${price}";
+    }
+
+    public void SetPotionName(string name)
+    {
+        potionName.text = name;
     }
 
     // Update is called once per frame
