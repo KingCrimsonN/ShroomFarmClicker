@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 199455616}
   - component: {fileID: 199455618}
   - component: {fileID: 199455617}
+  - component: {fileID: 199455619}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -292,6 +293,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199455615}
   m_CullTransparentMesh: 1
+--- !u!114 &199455619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199455615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779af4851319514c901c67570a325ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MushroomUIObserver
+  targetType: 2
+  labelToUpdate: {fileID: 199455617}
 --- !u!1001 &217538235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -307,6 +322,10 @@ PrefabInstance:
     - target: {fileID: 6353977722200619030, guid: 2350f062658398a4995d904dd4727c36, type: 3}
       propertyPath: m_fontSize
       value: 4.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6707541993084705752, guid: 2350f062658398a4995d904dd4727c36, type: 3}
+      propertyPath: upgradeType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7673519744556948937, guid: 2350f062658398a4995d904dd4727c36, type: 3}
       propertyPath: m_LocalPosition.x
@@ -371,17 +390,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7673519744556948937, guid: 2350f062658398a4995d904dd4727c36, type: 3}
   m_PrefabInstance: {fileID: 217538235}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &217538237 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5696511371372726859, guid: 2350f062658398a4995d904dd4727c36, type: 3}
-  m_PrefabInstance: {fileID: 217538235}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &217538238 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7925138414113879563, guid: 2350f062658398a4995d904dd4727c36, type: 3}
@@ -399,22 +407,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d519e799fe8fa44d86b168564c4a949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  onUpgrade:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1114275424}
-        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: UpgradePotionPriceMultiplier
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  priceText: {fileID: 217538237}
+  upgradeType: 0
+  baseCost: 10
+  costMultiplier: 1.15
+  titleText: {fileID: 0}
+  costText: {fileID: 0}
+  objectSprite: {fileID: 0}
+  affordableColor: {r: 1, g: 1, b: 1, a: 1}
+  lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
 --- !u!1 &240735658
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 260060452}
   - component: {fileID: 260060454}
   - component: {fileID: 260060453}
+  - component: {fileID: 260060455}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -656,6 +657,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260060451}
   m_CullTransparentMesh: 1
+--- !u!114 &260060455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260060451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779af4851319514c901c67570a325ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MushroomUIObserver
+  targetType: 1
+  labelToUpdate: {fileID: 260060453}
 --- !u!1 &268855464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1140,14 @@ PrefabInstance:
       value: Mushroom (1)
       objectReference: {fileID: 0}
     - target: {fileID: 2310638145022130993, guid: 2facc94ae37f9eb4bbaecef943440a15, type: 3}
+      propertyPath: mushroomName
+      value: Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310638145022130993, guid: 2facc94ae37f9eb4bbaecef943440a15, type: 3}
+      propertyPath: mushroomType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310638145022130993, guid: 2facc94ae37f9eb4bbaecef943440a15, type: 3}
       propertyPath: total_growth
       value: 25
       objectReference: {fileID: 0}
@@ -1218,6 +1241,7 @@ GameObject:
   - component: {fileID: 407309127}
   - component: {fileID: 407309129}
   - component: {fileID: 407309128}
+  - component: {fileID: 407309130}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1344,6 +1368,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407309126}
   m_CullTransparentMesh: 1
+--- !u!114 &407309130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407309126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779af4851319514c901c67570a325ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MushroomUIObserver
+  targetType: 0
+  labelToUpdate: {fileID: 407309128}
 --- !u!1 &442488341
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShroomButton
   mushroomType: 0
+  quantityLabel: {fileID: 0}
+  buttonComponent: {fileID: 0}
 --- !u!1 &471291335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,17 +1836,6 @@ MonoBehaviour:
   farmPosition: {x: 0, y: 0, z: -10}
   brewPosition: {x: 0, y: -12, z: -10}
   shopPosition: {x: 8, y: 0, z: -10}
---- !u!114 &573162258 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6353977722200619030, guid: 2350f062658398a4995d904dd4727c36, type: 3}
-  m_PrefabInstance: {fileID: 217538235}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &589016510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,6 +2010,7 @@ GameObject:
   - component: {fileID: 636507713}
   - component: {fileID: 636507715}
   - component: {fileID: 636507714}
+  - component: {fileID: 636507716}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2107,6 +2137,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636507712}
   m_CullTransparentMesh: 1
+--- !u!114 &636507716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636507712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779af4851319514c901c67570a325ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MushroomUIObserver
+  targetType: 2
+  labelToUpdate: {fileID: 636507714}
 --- !u!1 &689407253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,17 +2261,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4346087474626767694, guid: 2facc94ae37f9eb4bbaecef943440a15, type: 3}
   m_PrefabInstance: {fileID: 1373237208}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &767143049 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6353977722200619030, guid: 2350f062658398a4995d904dd4727c36, type: 3}
-  m_PrefabInstance: {fileID: 2353542134188255977}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &773127574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,44 +2366,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773127574}
   m_CullTransparentMesh: 1
---- !u!1 &774347373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7925138414113879563, guid: 2350f062658398a4995d904dd4727c36, type: 3}
-  m_PrefabInstance: {fileID: 2353542134188255977}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &774347374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7673519744556948937, guid: 2350f062658398a4995d904dd4727c36, type: 3}
   m_PrefabInstance: {fileID: 2353542134188255977}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &774347377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 774347373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d519e799fe8fa44d86b168564c4a949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  onUpgrade:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1114275424}
-        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: UpgradeGrowthPerClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  priceText: {fileID: 1060014938}
 --- !u!1 &800941820
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,7 +2613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b02c06bfeec44c4a9aaae0ca4f0527a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewingSlot
-  mushroomType: 2
+  mushroomSprite: {fileID: 0}
 --- !u!1 &847439025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,7 +2719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b02c06bfeec44c4a9aaae0ca4f0527a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewingSlot
-  mushroomType: 0
+  mushroomSprite: {fileID: 0}
 --- !u!1 &889629694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3319,18 +3319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b02c06bfeec44c4a9aaae0ca4f0527a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewingSlot
-  mushroomType: 1
---- !u!114 &1060014938 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5696511371372726859, guid: 2350f062658398a4995d904dd4727c36, type: 3}
-  m_PrefabInstance: {fileID: 2353542134188255977}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
+  mushroomSprite: {fileID: 0}
 --- !u!1 &1067583652
 GameObject:
   m_ObjectHideFlags: 0
@@ -3414,19 +3403,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1067583655}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1067583657}
-        m_TargetAssemblyTypeName: ShroomButton, Assembly-CSharp
-        m_MethodName: PutMushroom
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1067583655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3478,6 +3455,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShroomButton
   mushroomType: 1
+  quantityLabel: {fileID: 1537839804}
+  buttonComponent: {fileID: 1067583654}
 --- !u!1 &1097077079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3663,12 +3642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01bb05b3c75d584397b6f96800a1b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
-  growthPerClick: 0
-  growthPerSecond: 0
-  potionPriceMultiplier: 0
-  growthPerClickText: {fileID: 767143049}
-  growthPerSecondText: {fileID: 2031422468}
-  potionPriceMultiplierText: {fileID: 573162258}
 --- !u!1 &1274389296
 GameObject:
   m_ObjectHideFlags: 0
@@ -3698,19 +3671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5111ff349e556df49a4ccfa0135f606d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MushroomManager
-  labels:
-  - {fileID: 1585687737}
-  - {fileID: 260060453}
-  - {fileID: 199455617}
   mushroomInventory: 000000000000000000000000
-  farmMushroomLabels:
-  - {fileID: 1585687737}
-  - {fileID: 260060453}
-  - {fileID: 199455617}
-  brewingMushroomLabels:
-  - {fileID: 407309128}
-  - {fileID: 1537839804}
-  - {fileID: 636507714}
 --- !u!4 &1274389298
 Transform:
   m_ObjectHideFlags: 0
@@ -3949,6 +3910,14 @@ PrefabInstance:
       value: Mushroom (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2310638145022130993, guid: 2facc94ae37f9eb4bbaecef943440a15, type: 3}
+      propertyPath: mushroomName
+      value: Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310638145022130993, guid: 2facc94ae37f9eb4bbaecef943440a15, type: 3}
+      propertyPath: mushroomType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310638145022130993, guid: 2facc94ae37f9eb4bbaecef943440a15, type: 3}
       propertyPath: total_growth
       value: 100
       objectReference: {fileID: 0}
@@ -4042,6 +4011,7 @@ GameObject:
   - component: {fileID: 1537839803}
   - component: {fileID: 1537839805}
   - component: {fileID: 1537839804}
+  - component: {fileID: 1537839806}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4168,6 +4138,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537839802}
   m_CullTransparentMesh: 1
+--- !u!114 &1537839806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537839802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779af4851319514c901c67570a325ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MushroomUIObserver
+  targetType: 1
+  labelToUpdate: {fileID: 1537839804}
 --- !u!1 &1585687735
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,6 +4163,7 @@ GameObject:
   - component: {fileID: 1585687736}
   - component: {fileID: 1585687738}
   - component: {fileID: 1585687737}
+  - component: {fileID: 1585687739}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4305,6 +4290,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585687735}
   m_CullTransparentMesh: 1
+--- !u!114 &1585687739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585687735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5779af4851319514c901c67570a325ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MushroomUIObserver
+  targetType: 0
+  labelToUpdate: {fileID: 1585687737}
 --- !u!1 &1629370772
 GameObject:
   m_ObjectHideFlags: 0
@@ -4349,12 +4348,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b49466182e324a489bafecef02756e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BrewingManager
-  currentSlot: 0
   brewingSlots:
   - {fileID: 847439028}
   - {fileID: 1048481567}
   - {fileID: 813277771}
   cauldron: {fileID: 2091863118}
+  recipeDatabase:
+  - {fileID: 11400000, guid: b4ff73a5426cec44f82fba04eb9ed6ce, type: 2}
+  - {fileID: 11400000, guid: ce54fe0a8dbe4e944869a6d22d5e029f, type: 2}
+  - {fileID: 11400000, guid: 9c6211ea1585a6f47b1f4cdc2c78d513, type: 2}
+  failedPotionPrice: 5
 --- !u!1 &1637018958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4529,19 +4532,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1660094288}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1660094290}
-        m_TargetAssemblyTypeName: ShroomButton, Assembly-CSharp
-        m_MethodName: PutMushroom
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1660094288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4593,6 +4584,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShroomButton
   mushroomType: 2
+  quantityLabel: {fileID: 636507714}
+  buttonComponent: {fileID: 1660094287}
 --- !u!1 &1660202604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4676,19 +4669,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1660202607}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1660202609}
-        m_TargetAssemblyTypeName: ShroomButton, Assembly-CSharp
-        m_MethodName: PutMushroom
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1660202607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4740,6 +4721,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShroomButton
   mushroomType: 0
+  quantityLabel: {fileID: 407309128}
+  buttonComponent: {fileID: 1660202606}
 --- !u!1 &1696451393
 GameObject:
   m_ObjectHideFlags: 0
@@ -5830,6 +5813,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 4.75
       objectReference: {fileID: 0}
+    - target: {fileID: 6707541993084705752, guid: 2350f062658398a4995d904dd4727c36, type: 3}
+      propertyPath: upgradeType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7673519744556948937, guid: 2350f062658398a4995d904dd4727c36, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.3316793
@@ -5888,33 +5875,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2350f062658398a4995d904dd4727c36, type: 3}
---- !u!114 &2031422468 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6353977722200619030, guid: 2350f062658398a4995d904dd4727c36, type: 3}
-  m_PrefabInstance: {fileID: 2031422467}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!4 &2031422469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7673519744556948937, guid: 2350f062658398a4995d904dd4727c36, type: 3}
   m_PrefabInstance: {fileID: 2031422467}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2031422470 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5696511371372726859, guid: 2350f062658398a4995d904dd4727c36, type: 3}
-  m_PrefabInstance: {fileID: 2031422467}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshPro
 --- !u!1 &2031422471 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7925138414113879563, guid: 2350f062658398a4995d904dd4727c36, type: 3}
@@ -5932,22 +5897,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d519e799fe8fa44d86b168564c4a949, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Upgrade
-  onUpgrade:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1114275424}
-        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: UpgradeGrowthPerSecond
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  priceText: {fileID: 2031422470}
+  upgradeType: 0
+  baseCost: 10
+  costMultiplier: 1.15
+  titleText: {fileID: 0}
+  costText: {fileID: 0}
+  objectSprite: {fileID: 0}
+  affordableColor: {r: 1, g: 1, b: 1, a: 1}
+  lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
 --- !u!1 &2036833183
 GameObject:
   m_ObjectHideFlags: 0
@@ -5977,8 +5934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961477d1d30fa4f48882f2565d26bba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyManager
-  money: 0
-  money_text: {fileID: 1724420194}
 --- !u!4 &2036833185
 Transform:
   m_ObjectHideFlags: 0
@@ -6349,9 +6304,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7925138414113879563, guid: 2350f062658398a4995d904dd4727c36, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 774347377}
     - targetCorrespondingSourceObject: {fileID: 5552936903920989262, guid: 2350f062658398a4995d904dd4727c36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}

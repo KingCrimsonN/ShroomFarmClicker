@@ -1,80 +1,76 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class Mushroom : MonoBehaviour
 {
-    [SerializeField]
-    private string mushroom_name;
-    [SerializeField]
-    private MushroomManager.MushroomType mushroom_type;
+    [Header("Identity")]
+    [SerializeField] private string mushroomName;
+    [SerializeField] private MushroomManager.MushroomType mushroomType;
 
-    private TMP_Text mushroom_text;
-    private TMP_Text growth_text;
-    [SerializeField]
-    private int total_growth;
-    [SerializeField] // TODO: REMOVE
-    private int growth_per_second;
-    [SerializeField] // TODO: REMOVE
-    private int growth_per_click;
-    [SerializeField]
-    private float current_growth;
+    [Header("UI References")] // Drag these in the Inspector! No more transform.Find
+    [SerializeField] private TMP_Text nameLabel;
+    [SerializeField] private TMP_Text growthLabel;
 
-    private float growth_timer;
+    [Header("Growth Settings")]
+    [SerializeField] private float totalGrowth = 10f;
+    private float currentGrowth;
 
-    InputActionAsset actions;
+    private float uiUpdateTimer;
+    private const float UI_UPDATE_INTERVAL = 0.2f; // Update UI 5 times a sec instead of every frame (Mobile optimization)
 
-    void Awake()
-    {
-        // actions = GetComponent<PlayerInput>().actions;
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mushroom_text = transform.Find("MushroomName").GetComponent<TMP_Text>();
-        mushroom_text.text = mushroom_name;
-        growth_text = transform.Find("MushroomGrowth").GetComponent<TMP_Text>();
-        growth_text.text = current_growth.ToString() + "/" + total_growth.ToString();
-        current_growth = 0;
+        if (nameLabel != null) nameLabel.text = mushroomName;
+        UpdateGrowthDisplay();
+    }
+
+    void Update()
+    {
+        // Continuous passive growth
+        if (currentGrowth < totalGrowth)
+        {
+            currentGrowth += UpgradeManager.instance.growthPerSecond * Time.deltaTime;
+
+            // Optional: If you want passive growth to auto-harvest when full:
+            // if (currentGrowth >= totalGrowth) Harvest();
+        }
+
+        // Performance Optimization: Don't update strings every single frame on mobile.
+        uiUpdateTimer += Time.deltaTime;
+        if (uiUpdateTimer >= UI_UPDATE_INTERVAL)
+        {
+            uiUpdateTimer = 0f;
+            UpdateGrowthDisplay();
+        }
     }
 
     void OnMouseDown()
     {
-        current_growth += UpgradeManager.instance.growthPerClick;
-        if (current_growth > total_growth)
+        currentGrowth += UpgradeManager.instance.growthPerClick;
+
+        if (currentGrowth >= totalGrowth)
         {
             Harvest();
         }
-        growth_text.text = current_growth.ToString("F0") + "/" + total_growth.ToString();
+
+        UpdateGrowthDisplay();
     }
 
-    // Harvest the mushroom: 
-    // Reset the number
-    // Add to inventory
     public void Harvest()
     {
-        current_growth = 0;
-        MushroomManager.instance.AddMushroom(mushroom_type, 1);
-        /*
-        check what type 
-        depending on type we increase inventory in MushroomManager
-        */
+        // Subtract instead of setting to 0 to preserve leftover progress
+        currentGrowth = Mathf.Max(0, currentGrowth - totalGrowth);
+
+        MushroomManager.instance.AddMushroom(mushroomType, 1);
     }
 
-    // Update is called once per frame
-    // Musroom grows over time
-    // Mushroom grows on click
-    void Update()
+    private void UpdateGrowthDisplay()
     {
-        if (current_growth < total_growth)
+        if (growthLabel != null)
         {
-            current_growth += UpgradeManager.instance.growthPerSecond * Time.deltaTime;
-        }
-        growth_timer += Time.deltaTime;
-        if (growth_timer >= 1f)
-        {
-            growth_timer = 0f;
-            growth_text.text = current_growth.ToString("F0") + "/" + total_growth.ToString();
+            // Clamping display so it doesn't show visually weird numbers over the max layout
+            float displayGrowth = Mathf.Min(currentGrowth, totalGrowth);
+            growthLabel.text = $"{displayGrowth:F0}/{totalGrowth:F0}";
         }
     }
 }

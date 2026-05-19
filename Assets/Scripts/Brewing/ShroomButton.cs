@@ -1,29 +1,63 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShroomButton : MonoBehaviour
 {
     [SerializeField] private MushroomManager.MushroomType mushroomType;
-    private TMP_Text label;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void UpdateLabel()
-    {
-        label.text = MushroomManager.instance.mushroomInventory[(int)mushroomType].ToString();
-    }
+    [SerializeField] private TMP_Text quantityLabel;
+    [SerializeField] private Button buttonComponent; // Reference to the UI Button to enable/disable it dynamically
 
     void Start()
     {
-        label = GetComponentInChildren<TMP_Text>();
-        UpdateLabel();
+        buttonComponent.onClick.AddListener(PutMushroomInCauldron);
     }
 
-    public void PutMushroom()
+    private void OnEnable()
     {
-        if (MushroomManager.instance.mushroomInventory[(int)mushroomType] > 0 && BrewingManager.instance.currentSlot < 3)
+        MushroomManager.OnInventoryChanged += HandleInventoryChanged;
+
+        // Setup initialization values securely
+        if (MushroomManager.instance != null)
         {
-            MushroomManager.instance.AddMushroom(mushroomType, -1);
-            BrewingManager.instance.AddShroom(mushroomType);
-            UpdateLabel();
+            UpdateUI(MushroomManager.instance.GetMushroomCount(mushroomType));
+        }
+    }
+
+    private void OnDisable()
+    {
+        MushroomManager.OnInventoryChanged -= HandleInventoryChanged;
+    }
+
+    private void HandleInventoryChanged(MushroomManager.MushroomType type, int newAmount)
+    {
+        if (type == mushroomType)
+        {
+            UpdateUI(newAmount);
+        }
+    }
+
+    private void UpdateUI(int amount)
+    {
+        if (quantityLabel != null) quantityLabel.text = amount.ToString();
+
+        // Scalability Bonus: Disable the click button dynamically if you're clean out of shrooms!
+        if (buttonComponent != null) buttonComponent.interactable = amount > 0;
+    }
+
+    // Called via UI Button Click Event
+    public void PutMushroomInCauldron()
+    {
+        // Check if we have the inventory space and if the cauldron can accept it
+        int currentCount = MushroomManager.instance.GetMushroomCount(mushroomType);
+
+        if (currentCount > 0 && !BrewingManager.instance.IsCauldronFull)
+        {
+            // Try adding to cauldron first. If successful, deduct from data tracking layer
+            if (BrewingManager.instance.TryAddIngredient(mushroomType))
+            {
+                MushroomManager.instance.AddMushroom(mushroomType, -1);
+            }
         }
     }
 }

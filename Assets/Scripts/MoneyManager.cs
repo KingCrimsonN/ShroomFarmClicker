@@ -1,35 +1,34 @@
-using TMPro;
+using System;
 using UnityEngine;
 
 public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager instance;
 
-    public int money;
+    // Use double to avoid game breaking overflows in incremental math
+    private double currentMoney;
+    public double CurrentMoney => currentMoney;
 
-    public TMP_Text money_text;
+    // Broadcaster for any UI elements tracking total wealth
+    public static event Action<double> OnMoneyChanged;
 
-    public void AddMoney(float amount)
+    void Awake()
     {
-        money += (int)amount;
-        money_text.text = money.ToString();
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (instance != null) { Destroy(gameObject); return; }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddMoney(double amount)
     {
+        currentMoney += amount;
+        if (currentMoney < 0) currentMoney = 0; // Safeguard against negative balances
 
+        OnMoneyChanged?.Invoke(currentMoney);
+    }
+
+    public bool HasEnoughMoney(double amount)
+    {
+        return currentMoney >= amount;
     }
 }

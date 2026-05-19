@@ -1,10 +1,10 @@
-using TMPro;
+using System;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class MushroomManager : MonoBehaviour
 {
     public static MushroomManager instance;
+
     public enum MushroomType
     {
         Red,
@@ -12,39 +12,35 @@ public class MushroomManager : MonoBehaviour
         Blue
     }
 
-    [SerializeField]
-    private TMP_Text[] labels;
+    // A C# Action acts as an event dispatcher. 
+    // Any UI script can subscribe to this to know when a specific mushroom count updates.
+    public static event Action<MushroomType, int> OnInventoryChanged;
 
-    public int[] mushroomInventory = new int[3];
-
-    public TMP_Text[] farmMushroomLabels;
-    public TMP_Text[] brewingMushroomLabels;
-
-    public void AddMushroom(MushroomType type, int amount)
-    {
-        mushroomInventory[(int)type] += amount;
-        UpdateLabels();
-    }
-
-    private void UpdateLabels()
-    {
-        for (int i = 0; i < mushroomInventory.Length; i++)
-        {
-            farmMushroomLabels[i].text = mushroomInventory[i].ToString();
-            brewingMushroomLabels[i].text = mushroomInventory[i].ToString();
-        }
-    }
+    // Using an array sized by the Enum dynamically prevents hardcoding errors
+    public int[] mushroomInventory = new int[Enum.GetNames(typeof(MushroomType)).Length];
 
     private void Awake()
     {
         if (instance != null)
         {
             Destroy(gameObject);
+            return;
         }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void AddMushroom(MushroomType type, int amount)
+    {
+        int index = (int)type;
+        mushroomInventory[index] += amount;
+
+        // Broadcast to anyone listening (like UI components) that data changed
+        OnInventoryChanged?.Invoke(type, mushroomInventory[index]);
+    }
+
+    public int GetMushroomCount(MushroomType type)
+    {
+        return mushroomInventory[(int)type];
     }
 }

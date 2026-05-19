@@ -2,41 +2,36 @@ using UnityEngine;
 
 public class BrewingSlot : MonoBehaviour
 {
-    public MushroomManager.MushroomType mushroomType;
-    private SpriteRenderer mushroomSprite;
+    [SerializeField] private SpriteRenderer mushroomSprite;
 
-    public void AddShroom(MushroomManager.MushroomType type)
+    void Awake()
     {
-        mushroomType = type;
-        switch (type)
+        mushroomSprite = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    void Start()
+    {
+        ClearSlot();
+    }
+
+    public void SetMushroomVisual(MushroomManager.MushroomType type)
+    {
+        if (mushroomSprite == null) return;
+
+        mushroomSprite.color = type switch
         {
-            case MushroomManager.MushroomType.Red:
-                mushroomSprite.color = Color.red;
-                break;
-            case MushroomManager.MushroomType.Green:
-                mushroomSprite.color = Color.green;
-                break;
-            case MushroomManager.MushroomType.Blue:
-                mushroomSprite.color = Color.blue;
-                break;
-        }
+            MushroomManager.MushroomType.Red => Color.red,
+            MushroomManager.MushroomType.Green => Color.green,
+            MushroomManager.MushroomType.Blue => Color.blue,
+            _ => Color.white
+        };
     }
 
     public void ClearSlot()
     {
-        mushroomSprite.color = new Color(1, 1, 1, 0);
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        mushroomSprite = GetComponentInChildren<SpriteRenderer>();
-        ClearSlot();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (mushroomSprite != null)
+        {
+            mushroomSprite.color = new Color(1, 1, 1, 0); // Hide visual transparently
+        }
     }
 }

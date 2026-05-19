@@ -288,12 +288,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb27b250e9abb564f8ee43d741276046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mushroom
-  mushroom_name: Red
-  mushroom_type: 0
-  total_growth: 10
-  growth_per_second: 1
-  growth_per_click: 10
-  current_growth: 0
+  mushroomName: Red
+  mushroomType: 0
+  nameLabel: {fileID: 8367248595061942839}
+  growthLabel: {fileID: 3777088183867411194}
+  totalGrowth: 10
 --- !u!61 &3174839937430964643
 BoxCollider2D:
   m_ObjectHideFlags: 0
