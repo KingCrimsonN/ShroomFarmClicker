@@ -26,7 +26,10 @@ public class MoneyUIListener : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        if (MoneyManager.instance != null)
+        {
+            UpdateText(MoneyManager.instance.CurrentMoney);
+        }
     }
 
     // Update is called once per frame

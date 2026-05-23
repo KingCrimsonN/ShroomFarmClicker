@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Upgrade : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Upgrade : MonoBehaviour
     [SerializeField] private TMP_Text costText;
 
     [Header("Visual Feedback (Mobile)")]
-    [SerializeField] private SpriteRenderer objectSprite;
+    [SerializeField] private Button objectButton;
     [SerializeField] private Color affordableColor = Color.white;
     [SerializeField] private Color lockedColor = new Color(0.4f, 0.4f, 0.4f, 1f); // Dimmed look
 
@@ -25,9 +26,9 @@ public class Upgrade : MonoBehaviour
     void Awake()
     {
         // Auto-fetch SpriteRenderer if not explicitly assigned
-        if (objectSprite == null)
+        if (objectButton == null)
         {
-            objectSprite = GetComponent<SpriteRenderer>();
+            objectButton = GetComponent<Button>();
         }
         RefreshUpgradeState();
     }
@@ -47,7 +48,12 @@ public class Upgrade : MonoBehaviour
     }
 
     // Unity automatically catches touches on mobile colliders via OnMouseDown
-    private void OnMouseDown()
+    // private void OnMouseDown()
+    // {
+    //     UpgradeLevel();
+    // }
+
+    public void UpgradeLevel()
     {
         if (canAfford && MoneyManager.instance != null)
         {
@@ -93,9 +99,9 @@ public class Upgrade : MonoBehaviour
         canAfford = currentMoney >= currentCost;
 
         // Visual feedback substituting standard UI interactivity 
-        if (objectSprite != null)
+        if (objectButton != null)
         {
-            objectSprite.color = canAfford ? affordableColor : lockedColor;
+            objectButton.enabled = canAfford ? true : false;
         }
     }
 

@@ -10,6 +10,7 @@ public class Mushroom : MonoBehaviour
     [Header("UI References")] // Drag these in the Inspector! No more transform.Find
     [SerializeField] private TMP_Text nameLabel;
     [SerializeField] private TMP_Text growthLabel;
+    [SerializeField] private GameObject harvestLabel;
 
     [Header("Growth Settings")]
     [SerializeField] private float totalGrowth = 10f;
@@ -33,6 +34,7 @@ public class Mushroom : MonoBehaviour
 
             // Optional: If you want passive growth to auto-harvest when full:
             if (currentGrowth >= totalGrowth && UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeType.AutoHarvest) > 0) Harvest();
+            harvestLabel.SetActive(currentGrowth + 1 >= totalGrowth);
         }
 
         // Performance Optimization: Don't update strings every single frame on mobile.

@@ -14,17 +14,20 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveToFarm()
     {
-        transform.DOMove(farmPosition, 1f);
+        // transform.DOMove(farmPosition, 1f);
+        transform.position = farmPosition;
     }
 
     public void MoveToBrew()
     {
-        transform.DOMove(brewPosition, 1f);
+        // transform.DOMove(brewPosition, 1f);
+        transform.position = brewPosition;
     }
 
     public void MoveToShop()
     {
-        transform.DOMove(shopPosition, 1f);
+        // transform.DOMove(shopPosition, 1f);
+        transform.position = shopPosition;
     }
 
     // Update is called once per frame
