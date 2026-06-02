@@ -9,9 +9,10 @@ public class MushroomManager : MonoBehaviour
 
     public enum MushroomType
     {
-        Red,
-        Green,
-        Blue
+        Champignon,
+        AngerMushroom,
+        WizardMushroom,
+        EmploymentMushroom
     }
 
     // A C# Action acts as an event dispatcher. 

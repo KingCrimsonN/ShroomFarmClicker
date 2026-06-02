@@ -20,6 +20,8 @@ public class BrewingManager : MonoBehaviour
     public int CurrentSlotCount => ingredientsInCauldron.Count;
     public bool IsCauldronFull => ingredientsInCauldron.Count >= 3;
 
+    [SerializeField] private ConsequenceManager consequenceManager;
+
     void Awake()
     {
         if (instance != null) { Destroy(gameObject); return; }
@@ -87,7 +89,9 @@ public class BrewingManager : MonoBehaviour
 
         // 3. Clear data without refunding (since it was successfully turned into a potion)
         ResetSlotsDataOnly();
-        return;
+
+        // 4. Trigger consequences
+        consequenceManager.TriggerConsequence();
     }
 
     private void ResetSlotsDataOnly()

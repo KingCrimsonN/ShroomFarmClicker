@@ -20,9 +20,9 @@ public class BrewingSlot : MonoBehaviour
 
         mushroomSprite.sprite = type switch
         {
-            MushroomManager.MushroomType.Red => MushroomManager.instance.mushroomSprites.sprites[0],
-            MushroomManager.MushroomType.Green => MushroomManager.instance.mushroomSprites.sprites[1],
-            MushroomManager.MushroomType.Blue => MushroomManager.instance.mushroomSprites.sprites[2],
+            MushroomManager.MushroomType.Champignon => MushroomManager.instance.mushroomSprites.sprites[0],
+            MushroomManager.MushroomType.AngerMushroom => MushroomManager.instance.mushroomSprites.sprites[1],
+            MushroomManager.MushroomType.WizardMushroom => MushroomManager.instance.mushroomSprites.sprites[2],
             _ => null
         };
     }
