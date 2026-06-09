@@ -12,6 +12,13 @@ public class ConsequenceManager : MonoBehaviour
         consequenceObj.GetComponent<Consequence>().SetText(consequence);
         consequenceObj.transform.SetSiblingIndex(0);
     }
+
+    public void TriggerConsequence(string consequence)
+    {
+        GameObject consequenceObj = Instantiate(consequencePrefab, transform);
+        consequenceObj.GetComponent<Consequence>().SetText(consequence);
+        consequenceObj.transform.SetSiblingIndex(0);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

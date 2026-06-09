@@ -6,6 +6,7 @@ public class Mushroom : MonoBehaviour
     [Header("Identity")]
     [SerializeField] private string mushroomName;
     [SerializeField] private MushroomManager.MushroomType mushroomType;
+    [SerializeField] private SpriteRenderer mushroomSprite;
 
     [Header("UI References")] // Drag these in the Inspector! No more transform.Find
     [SerializeField] private TMP_Text nameLabel;
@@ -21,8 +22,10 @@ public class Mushroom : MonoBehaviour
 
     void Start()
     {
+        mushroomSprite = GetComponent<SpriteRenderer>();
         if (nameLabel != null) nameLabel.text = mushroomName;
         UpdateGrowthDisplay();
+        UpdateSprite();
     }
 
     void Update()
@@ -74,5 +77,11 @@ public class Mushroom : MonoBehaviour
             float displayGrowth = Mathf.Min(currentGrowth, totalGrowth);
             growthLabel.text = $"{displayGrowth:F0}/{totalGrowth:F0}";
         }
+    }
+
+    private void UpdateSprite()
+    {
+        if (mushroomSprite == null) return;
+        mushroomSprite.sprite = MushroomManager.instance.mushroomSprites.sprites[(int)mushroomType];
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d041962573a54898e50abf2a309a5, type: 3}
+  m_Name: 4 - Battle Potion
+  m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  potionName: Battle Potion
+  basePrice: 500
+  consequences:
+  - "A weak squire fought a bear and won. The bear\u2019s family is currently suing"
+  - The local militia charged a windmill. The windmill won, but they fought bravely
+  - A knight successfully defended a cabbage patch against an imaginary dragon
+  - Sir PlansAlot finally went into battle thanks to your potion
+  - Spartans bought your potion for symbolism only
+  requiredIngredients: 010000000200000000000000

@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 022d041962573a54898e50abf2a309a5, type: 3}
-  m_Name: AllRed 2
+  m_Name: 3 - Fury
   m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
-  potionName: AllGreen
-  basePrice: 1000
+  potionName: Potion of Fury
+  basePrice: 200
+  consequences:
+  - A warrior got so mad he accidentally punched through his own horse
+  - A toddler kicked a boulder directly into the neighboring kingdom
+  - A bard got so furious he destroyed the local tavern with his flute
+  - Chaotic Good Barbarian drank the potion of fury and it calmed him down
   requiredIngredients: 010000000100000001000000

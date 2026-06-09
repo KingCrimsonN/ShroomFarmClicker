@@ -12,6 +12,8 @@ public class MushroomManager : MonoBehaviour
         Champignon,
         AngerMushroom,
         WizardMushroom,
+        LoveMushroom,
+        HealingMushroom,
         EmploymentMushroom
     }
 

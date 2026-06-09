@@ -15,11 +15,6 @@ public class MushroomPot : MonoBehaviour
 
     private bool isPurchased = false;
 
-    void Awake()
-    {
-
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         purchasePanel = GetComponentInChildren<ShroomPurchase>();

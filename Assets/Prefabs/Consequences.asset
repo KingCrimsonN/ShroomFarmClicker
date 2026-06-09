@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Consequences
   m_EditorClassIdentifier: Assembly-CSharp::ChestOfFunnies
   consequences:
-  - Good job
-  - Your potion made someone's day
-  - Your potion were too strong
-  - Your potion was too gay
-  - Wow there
+  - You sold a bottle of slightly salty water
+  - Your potion did not do anything
+  - The glass was more expensive than what's inside
+  - Someone said that your potions are.. gay?

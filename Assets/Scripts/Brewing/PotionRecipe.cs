@@ -7,6 +7,9 @@ public class PotionRecipe : ScriptableObject
     public string potionName;
     public int basePrice = 50;
 
+    [TextArea(2, 5)]
+    public string[] consequences;
+
     [Tooltip("Requires exactly 3 mushrooms. Order does not matter.")]
     public List<MushroomManager.MushroomType> requiredIngredients = new List<MushroomManager.MushroomType>(3);
 
@@ -27,5 +30,13 @@ public class PotionRecipe : ScriptableObject
             if (checkList[i] != requiredList[i]) return false;
         }
         return true;
+    }
+
+    public string GetRandomConsequence()
+    {
+        if (consequences == null || consequences.Length == 0)
+            return "Nothing noticeable happened. Boring.";
+
+        return consequences[Random.Range(0, consequences.Length)];
     }
 }

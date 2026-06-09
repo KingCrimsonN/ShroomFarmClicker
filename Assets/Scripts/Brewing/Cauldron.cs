@@ -30,7 +30,7 @@ public class Cauldron : MonoBehaviour
             BrewingManager.instance.BrewPotion(out potionPrice, out potionName);
             sprite.sprite = defaultSprite;
             ready = false;
-            GameObject potion = Instantiate(potionsell, transform.position, Quaternion.identity); ;
+            GameObject potion = Instantiate(potionsell, transform.position + new Vector3(0, 1f, 0), Quaternion.identity); ;
             potion.GetComponent<PotionSellPopup>().SetPrice(potionPrice);
             potion.GetComponent<PotionSellPopup>().SetPotionName(potionName);
 

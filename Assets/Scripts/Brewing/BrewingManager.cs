@@ -91,7 +91,14 @@ public class BrewingManager : MonoBehaviour
         ResetSlotsDataOnly();
 
         // 4. Trigger consequences
-        consequenceManager.TriggerConsequence();
+        if (matchedRecipe != null)
+        {
+            consequenceManager.TriggerConsequence(matchedRecipe.GetRandomConsequence());
+        }
+        else
+        {
+            consequenceManager.TriggerConsequence();
+        }
     }
 
     private void ResetSlotsDataOnly()

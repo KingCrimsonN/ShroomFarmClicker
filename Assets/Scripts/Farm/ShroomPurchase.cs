@@ -26,14 +26,7 @@ public class ShroomPurchase : MonoBehaviour
     public void SetMushroomVisual(MushroomManager.MushroomType type)
     {
         if (mushroomSprite == null) return;
-
-        mushroomSprite.sprite = type switch
-        {
-            MushroomManager.MushroomType.Champignon => MushroomManager.instance.mushroomSprites.sprites[0],
-            MushroomManager.MushroomType.AngerMushroom => MushroomManager.instance.mushroomSprites.sprites[1],
-            MushroomManager.MushroomType.WizardMushroom => MushroomManager.instance.mushroomSprites.sprites[2],
-            _ => null
-        };
+        mushroomSprite.sprite = MushroomManager.instance.mushroomSprites.sprites[(int)type];
     }
 
     void Start()

@@ -21,7 +21,7 @@ public class MoneyUIListener : MonoBehaviour
 
     private void UpdateText(double amount)
     {
-        label.text = $"${amount:0}";
+        label.text = $"{amount:0}";
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 022d041962573a54898e50abf2a309a5, type: 3}
-  m_Name: AllRed
+  m_Name: 5 - Arcane Potion
   m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
-  potionName: AllRed
-  basePrice: 50
-  requiredIngredients: 000000000000000000000000
+  potionName: Arcane Potion
+  basePrice: 1000
+  consequences:
+  - An apprentice wizard turned his hands into cigarettes. He cannot turn them back
+  - A nearby house is now floating upside down. The landlord immediately raised the
+    rent
+  - A local scholar sneezed and accidentally cast a fireball into the local library
+  requiredIngredients: 020000000200000002000000
