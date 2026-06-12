@@ -23,6 +23,8 @@ public class MushroomManager : MonoBehaviour
 
     // Using an array sized by the Enum dynamically prevents hardcoding errors
     public int[] mushroomInventory = new int[Enum.GetNames(typeof(MushroomType)).Length];
+    public bool[] mushroomPurchased = new bool[Enum.GetNames(typeof(MushroomType)).Length];
+    public float[] mushroomGrowth = new float[Enum.GetNames(typeof(MushroomType)).Length];
 
     private void Awake()
     {
@@ -44,8 +46,37 @@ public class MushroomManager : MonoBehaviour
         OnInventoryChanged?.Invoke(type, mushroomInventory[index]);
     }
 
+    public float GetGrowth(MushroomType type)
+    {
+        return mushroomGrowth[(int)type];
+    }
+
+    public void SetGrowth(MushroomType type, float growth)
+    {
+        mushroomGrowth[(int)type] = growth;
+    }
+
     public int GetMushroomCount(MushroomType type)
     {
         return mushroomInventory[(int)type];
+    }
+
+    public bool IsMushroomPurchased(MushroomType type)
+    {
+        return mushroomPurchased[(int)type];
+    }
+
+    public void PurchaseMushroom(MushroomType type)
+    {
+        mushroomPurchased[(int)type] = true;
+    }
+
+    public void LoadInventoryDataDirectly(MushroomType type, int count)
+    {
+        // Assuming your internal storage dictionary or array maps integers directly:
+        mushroomInventory[(int)type] = count;
+
+        // Broadcast the event immediately so all your UI text components update instantly on startup!
+        OnInventoryChanged?.Invoke(type, count);
     }
 }

@@ -22,10 +22,42 @@ public class Mushroom : MonoBehaviour
 
     void Start()
     {
-        mushroomSprite = GetComponent<SpriteRenderer>();
+        // mushroomSprite = GetComponentInChildren<SpriteRenderer>();
         if (nameLabel != null) nameLabel.text = mushroomName;
         UpdateGrowthDisplay();
         UpdateSprite();
+        ResetSpriteScale();
+        FetchGrowth();
+    }
+
+    void FetchGrowth()
+    {
+        float growth = MushroomManager.instance.GetGrowth(mushroomType);
+        if (UpgradeManager.instance.GetUpgradeLevel(UpgradeManager.UpgradeType.AutoHarvest) > 0)
+        {
+            // If auto-harvest is unlocked, we calculate how many full harvests occurred during offline time
+            int mushroomsGrown = (int)(growth / totalGrowth);
+            MushroomManager.instance.AddMushroom(mushroomType, mushroomsGrown);
+            growth -= mushroomsGrown * totalGrowth; // Remove the harvested growth
+            currentGrowth = growth;
+            MushroomManager.instance.SetGrowth(mushroomType, growth); // Update the manager with leftover growth
+        }
+        else
+        {
+            if (growth >= totalGrowth)
+            {
+                currentGrowth = totalGrowth;
+                MushroomManager.instance.SetGrowth(mushroomType, growth);
+                return;
+            }
+            currentGrowth = growth;
+            MushroomManager.instance.SetGrowth(mushroomType, growth);
+        }
+    }
+
+    void ResetSpriteScale()
+    {
+        mushroomSprite.gameObject.transform.localScale = Vector3.zero; // Start invisible and grow in
     }
 
     void Update()
@@ -44,6 +76,7 @@ public class Mushroom : MonoBehaviour
         uiUpdateTimer += Time.deltaTime;
         if (uiUpdateTimer >= UI_UPDATE_INTERVAL)
         {
+            mushroomSprite.gameObject.transform.localScale = Vector3.one * (currentGrowth / totalGrowth) * (1f + 0.1f * Mathf.Sin(Time.time * 5f)); // Subtle breathing animation
             uiUpdateTimer = 0f;
             UpdateGrowthDisplay();
         }
@@ -52,6 +85,7 @@ public class Mushroom : MonoBehaviour
     void OnMouseDown()
     {
         currentGrowth += UpgradeManager.instance.growthPerClick;
+        MushroomManager.instance.SetGrowth(mushroomType, currentGrowth);
 
         if (currentGrowth >= totalGrowth)
         {
@@ -67,6 +101,7 @@ public class Mushroom : MonoBehaviour
         currentGrowth = Mathf.Max(0, currentGrowth - totalGrowth);
 
         MushroomManager.instance.AddMushroom(mushroomType, 1);
+        ResetSpriteScale();
     }
 
     private void UpdateGrowthDisplay()

@@ -58,4 +58,14 @@ public class UpgradeManager : MonoBehaviour
 
         OnUpgradeLeveled?.Invoke(type, GetUpgradeLevel(type));
     }
+
+    public void LoadLevelDataDirectly(UpgradeType type, int level)
+    {
+        switch (type)
+        {
+            case UpgradeType.GrowthPerClick: clickLevel = level; break;
+            case UpgradeType.GrowthPerSecond: passiveLevel = level; break;
+            case UpgradeType.PotionPriceMultiplier: priceLevel = level; break;
+        }
+    }
 }

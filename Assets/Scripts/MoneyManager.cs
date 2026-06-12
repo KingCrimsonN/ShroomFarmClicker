@@ -10,7 +10,8 @@ public class MoneyManager : MonoBehaviour
     public double CurrentMoney => currentMoney;
 
     // Broadcaster for any UI elements tracking total wealth
-    public static event Action<double> OnMoneyChanged;
+    public static event Action<double, double> OnMoneyChanged;
+    public static event Action<double> OnMoneyAdded;
 
     void Awake()
     {
@@ -24,7 +25,8 @@ public class MoneyManager : MonoBehaviour
         currentMoney += amount;
         if (currentMoney < 0) currentMoney = 0; // Safeguard against negative balances
 
-        OnMoneyChanged?.Invoke(currentMoney);
+        OnMoneyChanged?.Invoke(currentMoney, amount);
+        OnMoneyAdded?.Invoke(amount);
     }
 
     public bool HasEnoughMoney(double amount)

@@ -25,12 +25,23 @@ public class MushroomPot : MonoBehaviour
         }
         purchasePanel.InitPanel(mushroomType, price);
         MoneyManager.OnMoneyChanged += CheckMoney;
-        CheckMoney(MoneyManager.instance.CurrentMoney);
+        CheckMoney(MoneyManager.instance.CurrentMoney, 0);
         purchasePanel.gameObject.transform.localScale = Vector3.zero;
         readyOverlay.SetActive(false);
+        CheckMushroomPurchase();
     }
 
-    void CheckMoney(double money)
+    void CheckMushroomPurchase()
+    {
+        if (MushroomManager.instance.IsMushroomPurchased(mushroomType))
+        {
+            isPurchased = true;
+            readyOverlay.SetActive(false);
+            mushroom.SetActive(true);
+        }
+    }
+
+    void CheckMoney(double money, double amount)
     {
         if (isPurchased) return;
         if (MoneyManager.instance.HasEnoughMoney(price))
@@ -71,6 +82,7 @@ public class MushroomPot : MonoBehaviour
             MoneyManager.instance.AddMoney(-price);
             readyOverlay.SetActive(false);
             mushroom.SetActive(true);
+            MushroomManager.instance.PurchaseMushroom(mushroomType);
         }
     }
 

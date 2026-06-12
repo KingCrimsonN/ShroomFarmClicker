@@ -89,7 +89,7 @@ public class Upgrade : MonoBehaviour
         if (type == upgradeType) RefreshUpgradeState();
     }
 
-    private void HandleMoneyChanged(double currentMoney)
+    private void HandleMoneyChanged(double currentMoney, double amount)
     {
         UpdateVisuals(currentMoney);
     }
