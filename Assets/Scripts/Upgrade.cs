@@ -96,12 +96,18 @@ public class Upgrade : MonoBehaviour
 
     private void UpdateVisuals(double currentMoney)
     {
+        if (upgradeType == UpgradeManager.UpgradeType.AutoHarvest && UpgradeManager.instance.GetUpgradeLevel(upgradeType) > 0)
+        {
+            objectButton.interactable = false;
+            return;
+        }
+
         canAfford = currentMoney >= currentCost;
 
         // Visual feedback substituting standard UI interactivity 
         if (objectButton != null)
         {
-            objectButton.enabled = canAfford ? true : false;
+            objectButton.interactable = canAfford;
         }
     }
 

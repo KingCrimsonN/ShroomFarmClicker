@@ -8,8 +8,10 @@ public class Consequence : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        text.DOColor(new Color(256, 256, 256, 0f), 60f).SetEase(Ease.Linear);
-        Destroy(gameObject, 120f);
+        text.DOFade(1f, 1f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            text.DOFade(0f, 60f).SetEase(Ease.Linear);
+        });
     }
 
     public void SetText(string text)

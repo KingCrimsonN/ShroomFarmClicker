@@ -66,6 +66,7 @@ public class UpgradeManager : MonoBehaviour
             case UpgradeType.GrowthPerClick: clickLevel = level; break;
             case UpgradeType.GrowthPerSecond: passiveLevel = level; break;
             case UpgradeType.PotionPriceMultiplier: priceLevel = level; break;
+            case UpgradeType.AutoHarvest: autoHarvestLevel = level; break;
         }
     }
 }

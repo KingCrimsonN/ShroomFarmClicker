@@ -436,6 +436,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7806305629558765373, guid: d86d6cc2c2440184ca1acc77edd824ae, type: 3}
+      propertyPath: oneTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7806305629558765373, guid: d86d6cc2c2440184ca1acc77edd824ae, type: 3}
       propertyPath: upgradeType
       value: 3
       objectReference: {fileID: 0}
@@ -974,7 +978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.x
@@ -982,7 +986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1022,11 +1026,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 646.775
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1044,6 +1048,10 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 5866165431930342980, guid: 834d61040b8ed5d4ebf220d68f22e739, type: 3}
+    - target: {fileID: 4058494321120299539, guid: bed83af0753650e429eecb600fc78abb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 6132469082928562131, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_Name
       value: Mushroom1 (5)
@@ -1316,7 +1324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1324,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1364,11 +1372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 417.355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1386,6 +1394,10 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 084c737df66e81b4ca0df697e290b611, type: 3}
+    - target: {fileID: 4058494321120299539, guid: bed83af0753650e429eecb600fc78abb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 6132469082928562131, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_Name
       value: Mushroom1 (3)
@@ -1563,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1571,7 +1583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1611,11 +1623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 187.93501
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1633,6 +1645,10 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 352fd394cad91af4284c6d0c33a32359, type: 3}
+    - target: {fileID: 4058494321120299539, guid: bed83af0753650e429eecb600fc78abb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 6132469082928562131, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_Name
       value: Mushroom1 (1)
@@ -3172,7 +3188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3180,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3220,11 +3236,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 532.065
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3242,6 +3258,10 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: ddda7fbcb26ca774c95eece203694e67, type: 3}
+    - target: {fileID: 4058494321120299539, guid: bed83af0753650e429eecb600fc78abb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 6132469082928562131, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_Name
       value: Mushroom1 (4)
@@ -3894,7 +3914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3902,7 +3922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3942,11 +3962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 302.64502
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3964,6 +3984,10 @@ PrefabInstance:
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: ca903addbce913a48b8aba1d903f4e73, type: 3}
+    - target: {fileID: 4058494321120299539, guid: bed83af0753650e429eecb600fc78abb, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 6132469082928562131, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_Name
       value: Mushroom1 (2)
@@ -4018,9 +4042,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000072479, y: 0}
-  m_SizeDelta: {x: 0, y: -0.31}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1103597555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4033,8 +4057,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c47298a96e04ee429b57f5ff61037b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConsequenceManager
-  consequences: {fileID: 11400000, guid: fdf29b2ae278bf04c8635140338d46b4, type: 2}
   consequencePrefab: {fileID: 6657704824117562698, guid: 91a4a7a491b14c64f98851aa40adec32, type: 3}
+  scrollRect: {fileID: 0}
+  consequences: {fileID: 11400000, guid: fdf29b2ae278bf04c8635140338d46b4, type: 2}
+  maxLogEntries: 35
 --- !u!114 &1103597556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4050,12 +4076,12 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 31
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 1.32
+  m_Spacing: 30.28
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
@@ -4074,7 +4100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 0
-  m_VerticalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &1114275422
 GameObject:
   m_ObjectHideFlags: 0
@@ -5446,8 +5472,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
-  m_SizeDelta: {x: -0.000061035, y: 0}
+  m_AnchoredPosition: {x: -0.00012207031, y: -0.00012207031}
+  m_SizeDelta: {x: -0.0001, y: -5.2274}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1482929826
 MonoBehaviour:
@@ -7020,7 +7046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1998855288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7664,7 +7690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7672,7 +7698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7712,11 +7738,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 73.225006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685539074650027769, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7732,11 +7758,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4058494321120299539, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 52.9424
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4058494321120299539, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.909073
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058494321120299539, guid: bed83af0753650e429eecb600fc78abb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -129.1
       objectReference: {fileID: 0}
     - target: {fileID: 6132469082928562131, guid: bed83af0753650e429eecb600fc78abb, type: 3}
       propertyPath: m_Name
@@ -7852,10 +7882,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1853317524}
     m_Modifications:
-    - target: {fileID: 1687618217460952600, guid: da6c8d9fa7bdd8a428dfd431d07d78bc, type: 3}
-      propertyPath: m_SortingOrder
-      value: 41
-      objectReference: {fileID: 0}
     - target: {fileID: 3994308713231110397, guid: da6c8d9fa7bdd8a428dfd431d07d78bc, type: 3}
       propertyPath: m_Camera
       value: 
@@ -7867,10 +7893,6 @@ PrefabInstance:
     - target: {fileID: 5472082857165747435, guid: da6c8d9fa7bdd8a428dfd431d07d78bc, type: 3}
       propertyPath: mushroomType
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6847686096273022398, guid: da6c8d9fa7bdd8a428dfd431d07d78bc, type: 3}
-      propertyPath: m_SortingOrder
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7188290911784940844, guid: da6c8d9fa7bdd8a428dfd431d07d78bc, type: 3}
       propertyPath: m_LocalPosition.x
