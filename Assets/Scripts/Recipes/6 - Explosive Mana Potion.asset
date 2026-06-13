@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022d041962573a54898e50abf2a309a5, type: 3}
   m_Name: 6 - Explosive Mana Potion
   m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  ID: 5
   potionName: Explosive Mana Potion
   basePrice: -250
   consequences:

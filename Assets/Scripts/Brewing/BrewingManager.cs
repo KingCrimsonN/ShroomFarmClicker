@@ -11,7 +11,7 @@ public class BrewingManager : MonoBehaviour
     [SerializeField] private Cauldron cauldron;
 
     [Header("Recipe Database")]
-    [SerializeField] private List<PotionRecipe> recipeDatabase;
+
     [SerializeField] private int failedPotionPrice = 5;
 
     // Tracking internal state securely
@@ -68,11 +68,12 @@ public class BrewingManager : MonoBehaviour
 
         // 1. Determine potion type and pricing dynamically from data
         PotionRecipe matchedRecipe = null;
-        foreach (var recipe in recipeDatabase)
+        foreach (var recipe in CookBookManager.instance.recipeDatabase)
         {
             if (recipe.IsMatch(ingredientsInCauldron))
             {
                 matchedRecipe = recipe;
+                CookBookManager.instance.UnlockRecipe(recipe.ID);
                 break;
             }
         }

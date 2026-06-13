@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPotionRecipe", menuName = "Alchemy/Potion Recipe")]
 public class PotionRecipe : ScriptableObject
 {
+    public int ID;
     public string potionName;
     public int basePrice = 50;
 

@@ -71,6 +71,11 @@ public class MushroomManager : MonoBehaviour
         mushroomPurchased[(int)type] = true;
     }
 
+    public Sprite GetSprite(MushroomType type)
+    {
+        return mushroomSprites.sprites[(int)type];
+    }
+
     public void LoadInventoryDataDirectly(MushroomType type, int count)
     {
         // Assuming your internal storage dictionary or array maps integers directly:

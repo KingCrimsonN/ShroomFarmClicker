@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022d041962573a54898e50abf2a309a5, type: 3}
   m_Name: 4 - Battle Potion
   m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  ID: 3
   potionName: Battle Potion
   basePrice: 500
   consequences:
