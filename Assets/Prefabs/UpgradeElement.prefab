@@ -228,7 +228,7 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -505,8 +505,6 @@ MonoBehaviour:
   titleText: {fileID: 7616715579809136947}
   costText: {fileID: 9072996116310688459}
   objectButton: {fileID: 1601886989585745856}
-  affordableColor: {r: 1, g: 1, b: 1, a: 1}
-  lockedColor: {r: 0.4, g: 0.4, b: 0.4, a: 1}
 --- !u!1 &7448470919307729051
 GameObject:
   m_ObjectHideFlags: 0

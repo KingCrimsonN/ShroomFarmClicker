@@ -79,4 +79,9 @@ public class MushroomManager : MonoBehaviour
         // Broadcast the event immediately so all your UI text components update instantly on startup!
         OnInventoryChanged?.Invoke(type, count);
     }
+
+    public void LoadPurchaseDataDirectly(MushroomType type, bool purchased)
+    {
+        mushroomPurchased[(int)type] = purchased;
+    }
 }

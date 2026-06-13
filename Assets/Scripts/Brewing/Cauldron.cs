@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Cauldron : MonoBehaviour
@@ -7,12 +8,17 @@ public class Cauldron : MonoBehaviour
     [SerializeField] private Sprite readySprite;
     private Sprite defaultSprite;
 
+    Vector3 originalScale;
+    Vector3 originalRotation;
+
     [SerializeField] private GameObject potionsell;
 
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         defaultSprite = sprite.sprite;
+        originalScale = transform.localScale;
+        originalRotation = transform.localEulerAngles;
     }
 
     public void MakeReady()
@@ -23,6 +29,14 @@ public class Cauldron : MonoBehaviour
 
     public void OnMouseDown()
     {
+        Tween shakeTween = DOTween.Sequence()
+            .Append(transform.DORotate(new Vector3(0, 0, Random.Range(-15f, 15f)), 0.1f).SetLoops(2, LoopType.Yoyo))
+            .Join(transform.DOShakeScale(0.1f, 0.5f))
+            .OnComplete(() =>
+            {
+                transform.localScale = originalScale;
+                transform.localEulerAngles = originalRotation;
+            });
         if (ready)
         {
             string potionName;

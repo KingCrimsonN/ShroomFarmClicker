@@ -8,7 +8,7 @@ public class Upgrade : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] private UpgradeManager.UpgradeType upgradeType;
     [SerializeField] private double baseCost = 10;
-    [SerializeField] private float costMultiplier = 1.15f;
+    [SerializeField] private float costMultiplier = 10f;
     [SerializeField] private bool oneTime;
 
     [Header("World Space Text Displays")]
@@ -17,8 +17,6 @@ public class Upgrade : MonoBehaviour
 
     [Header("Visual Feedback (Mobile)")]
     [SerializeField] private Button objectButton;
-    [SerializeField] private Color affordableColor = Color.white;
-    [SerializeField] private Color lockedColor = new Color(0.4f, 0.4f, 0.4f, 1f); // Dimmed look
 
     private double currentCost;
     private bool canAfford;
@@ -76,10 +74,14 @@ public class Upgrade : MonoBehaviour
         if (UpgradeManager.instance == null) return;
 
         CalculateCurrentCost();
-
         // Update world-space floating text meshes safely
         if (titleText != null) titleText.text = $"{FormatUpgradeName(upgradeType.ToString())}\n(Lv. {UpgradeManager.instance.GetUpgradeLevel(upgradeType)})";
         if (costText != null) costText.text = $"${currentCost:F0}";
+
+        if (upgradeType == UpgradeManager.UpgradeType.AutoHarvest && UpgradeManager.instance.GetUpgradeLevel(upgradeType) > 0)
+        {
+            if (costText != null) costText.text = "Purchased!";
+        }
 
         UpdateVisuals(MoneyManager.instance != null ? MoneyManager.instance.CurrentMoney : 0);
     }

@@ -128,7 +128,7 @@ public class SaveManager : MonoBehaviour
             // Reload Mushroom Purchases
             for (int i = 0; i < data.mushroomPurchased.Length; i++)
             {
-                MushroomManager.instance.mushroomPurchased[i] = data.mushroomPurchased[i];
+                MushroomManager.instance.LoadPurchaseDataDirectly((MushroomManager.MushroomType)i, data.mushroomPurchased[i]);
             }
 
             // 2. Run Offline Progression Math

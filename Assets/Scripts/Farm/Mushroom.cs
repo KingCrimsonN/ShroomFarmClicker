@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class Mushroom : MonoBehaviour
     [Header("Identity")]
     [SerializeField] private string mushroomName;
     [SerializeField] private MushroomManager.MushroomType mushroomType;
+    [SerializeField] private SpriteRenderer potSprite;
     [SerializeField] private SpriteRenderer mushroomSprite;
 
     [Header("UI References")] // Drag these in the Inspector! No more transform.Find
@@ -84,7 +86,13 @@ public class Mushroom : MonoBehaviour
 
     void OnMouseDown()
     {
-        currentGrowth += UpgradeManager.instance.growthPerClick;
+        print("MUSHROOM CLICKED");
+        potSprite.transform.DOShakeScale(0.1f, 0.5f).OnComplete(() =>
+                {
+                    potSprite.transform.localScale = Vector3.one; // Ensure it ends at the correct scale
+                });
+
+        currentGrowth = Mathf.Min(totalGrowth, currentGrowth + UpgradeManager.instance.growthPerClick);
         MushroomManager.instance.SetGrowth(mushroomType, currentGrowth);
 
         if (currentGrowth >= totalGrowth)

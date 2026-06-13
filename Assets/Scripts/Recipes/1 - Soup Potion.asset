@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1 - Soup Potion
   m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
   potionName: Soup Potion
-  basePrice: 25
+  basePrice: 2500
   consequences:
   - Is it really a potion if it's just... soup?
   - '"There was a fly in my soup potion!"'

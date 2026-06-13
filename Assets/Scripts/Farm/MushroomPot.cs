@@ -19,26 +19,28 @@ public class MushroomPot : MonoBehaviour
     {
         purchasePanel = GetComponentInChildren<ShroomPurchase>();
         mushroom = GetComponentInChildren<Mushroom>().gameObject;
-        if (!isPurchased)
-        {
-            mushroom.SetActive(false);
-        }
-        purchasePanel.InitPanel(mushroomType, price);
-        MoneyManager.OnMoneyChanged += CheckMoney;
-        CheckMoney(MoneyManager.instance.CurrentMoney, 0);
-        purchasePanel.gameObject.transform.localScale = Vector3.zero;
-        readyOverlay.SetActive(false);
-        CheckMushroomPurchase();
-    }
-
-    void CheckMushroomPurchase()
-    {
-        if (MushroomManager.instance.IsMushroomPurchased(mushroomType))
+        if (CheckMushroomPurchase())
         {
             isPurchased = true;
             readyOverlay.SetActive(false);
             mushroom.SetActive(true);
+            GetComponent<BoxCollider2D>().enabled = false;
         }
+        else
+        {
+            mushroom.SetActive(false);
+        }
+        MoneyManager.OnMoneyChanged += CheckMoney;
+        purchasePanel.InitPanel(mushroomType, price);
+        CheckMoney(MoneyManager.instance.CurrentMoney, 0);
+        purchasePanel.gameObject.transform.localScale = Vector3.zero;
+        readyOverlay.SetActive(false);
+
+    }
+
+    bool CheckMushroomPurchase()
+    {
+        return MushroomManager.instance.IsMushroomPurchased(mushroomType);
     }
 
     void CheckMoney(double money, double amount)
@@ -67,8 +69,10 @@ public class MushroomPot : MonoBehaviour
 
     void OnMouseDown()
     {
+        print("POT CLICKED");
         if (isPurchased) return;
         purchasePanel.Open();
+        // transform.DOShakePosition(0.1f, 0.5f);
         // opening = true;
 
     }
