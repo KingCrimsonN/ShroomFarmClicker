@@ -9,6 +9,8 @@ public class SaveData
     public bool[] mushroomPurchased;
     public float[] mushroomGrowth;
 
+    public bool[] potionsUnlocked;
+
     // Store time as a standardized string 
     public string lastSaveTimestamp;
 }

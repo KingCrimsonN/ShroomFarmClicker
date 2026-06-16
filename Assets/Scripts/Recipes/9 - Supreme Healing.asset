@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d041962573a54898e50abf2a309a5, type: 3}
+  m_Name: 9 - Supreme Healing
+  m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  ID: 8
+  potionName: Supreme Healing Potion
+  basePrice: 10000
+  consequences:
+  - Supreme? Like that clothes brand?
+  - Your potion saved a group of travelers
+  - Terrarians expected something greater but this will do
+  - A zombie came out of your shop as a fresh man
+  - Someone wished the potion healed their emotional damage. But it didn't
+  requiredIngredients: 040000000400000004000000

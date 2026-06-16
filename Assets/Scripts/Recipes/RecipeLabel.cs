@@ -23,7 +23,7 @@ public class RecipeLabel : MonoBehaviour
     public void UnlockRecipe(int ID)
     {
         if (recipe.ID != ID) return;
-        recipeName.text = recipe.potionName;
+        recipeName.text = recipe.potionName + " --- " + recipe.basePrice * UpgradeManager.instance.potionPriceMultiplier;
         for (int i = 0; i < 3; i++)
         {
             mushrooms[i].sprite = MushroomManager.instance.GetSprite(recipe.requiredIngredients[i]);

@@ -7,10 +7,13 @@ public class ShroomButton : MonoBehaviour
     [SerializeField] private MushroomManager.MushroomType mushroomType;
     [SerializeField] private TMP_Text quantityLabel;
     [SerializeField] private Button buttonComponent; // Reference to the UI Button to enable/disable it dynamically
+    [SerializeField] private Image mainSprite;
 
     void Start()
     {
         buttonComponent.onClick.AddListener(PutMushroomInCauldron);
+        // mainSprite = GetComponent<Image>();
+        // mainSprite.sprite = MushroomManager.instance.GetSprite(mushroomType);
     }
 
     private void OnEnable()

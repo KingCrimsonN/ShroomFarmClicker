@@ -6,7 +6,7 @@ public class MushroomUIObserver : MonoBehaviour
 {
     [SerializeField] private MushroomManager.MushroomType targetType;
     [SerializeField] private TMP_Text labelToUpdate;
-    [SerializeField] private RawImage icon;
+    [SerializeField] private Image icon;
 
     private void OnEnable()
     {
@@ -40,6 +40,6 @@ public class MushroomUIObserver : MonoBehaviour
     private void UpdateIcon()
     {
         if (icon == null) return;
-        icon.texture = MushroomManager.instance.mushroomSprites.sprites[(int)targetType].texture;
+        icon.sprite = MushroomManager.instance.mushroomSprites.sprites[(int)targetType];
     }
 }

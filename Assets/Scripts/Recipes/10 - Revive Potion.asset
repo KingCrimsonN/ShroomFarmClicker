@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d041962573a54898e50abf2a309a5, type: 3}
+  m_Name: 10 - Revive Potion
+  m_EditorClassIdentifier: Assembly-CSharp::PotionRecipe
+  ID: 9
+  potionName: Domestic Violence Potion
+  basePrice: 30000
+  consequences:
+  - You were not ready for someone reviving a corpse in your shop
+  - Someone tried reviving a famous Austrian painter. Good thing their curse is stronger
+    than your potions
+  - Someone revived a Spanish dictator. He now lives as an ocupa and really likes
+    avocadoes
+  - Someone started reviving extinct animals. You wonder when it will be dinosaurs
+  - A person with the Black Plague was revived. Your potions revive, doesn't disinfect
+  requiredIngredients: 010000000300000001000000

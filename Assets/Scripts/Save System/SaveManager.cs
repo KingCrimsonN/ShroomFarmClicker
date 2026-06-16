@@ -78,6 +78,13 @@ public class SaveManager : MonoBehaviour
             data.mushroomGrowth[i] = MushroomManager.instance.GetGrowth((MushroomManager.MushroomType)i);
         }
 
+        int recipeCount = CookBookManager.instance.recipeDatabase.Count;
+        data.potionsUnlocked = new bool[recipeCount];
+        for (int i = 0; i < recipeCount; i++)
+        {
+            data.potionsUnlocked[i] = CookBookManager.instance.IsRecipeUnlocked(i);
+        }
+
         // 2. Timestamp the file
         data.lastSaveTimestamp = DateTime.UtcNow.ToString("o"); // ISO 8601 standard format string
 
@@ -129,6 +136,13 @@ public class SaveManager : MonoBehaviour
             for (int i = 0; i < data.mushroomPurchased.Length; i++)
             {
                 MushroomManager.instance.LoadPurchaseDataDirectly((MushroomManager.MushroomType)i, data.mushroomPurchased[i]);
+            }
+
+            // Reload Recipe Unlocks
+            for (int i = 0; i < data.potionsUnlocked.Length; i++)
+            {
+                if (data.potionsUnlocked[i])
+                    CookBookManager.instance.UnlockRecipe(i);
             }
 
             // 2. Run Offline Progression Math
